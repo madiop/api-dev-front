@@ -1,8 +1,8 @@
 <h1>Login</h1>
 <div>
     <div [hidden]="!error" class="alert alert-danger" role="alert">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Error:</span>
-          <span class="sr-only">Error:</span>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="warning">&nbsp;{{ error }}</span>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">

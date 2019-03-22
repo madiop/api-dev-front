@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { HttpClient, HttpResponse, HttpHeaders} from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
+import { BASE_API_URL } from '../app.globals';
 
 @Injectable()
 export class AuthenticationService {
@@ -11,7 +11,7 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) {}
 
   authenticate(user: any) {
-      let url     = 'http://127.0.0.1:8000/api/login_check';
+      let url     = BASE_API_URL + 'login_check';
       let body     = new URLSearchParams();
       body.append('username', user.username);
       body.append('password', user.password);
@@ -20,7 +20,7 @@ export class AuthenticationService {
       };
 
       return this.httpClient
-              .post<any[]>(url, body.toString(), httpOptions);
+                 .post<any[]>(url, body.toString(), httpOptions);
   }
 
   public getToken(): string {

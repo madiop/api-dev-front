@@ -20,7 +20,8 @@ export class PostComponent implements OnInit {
                   this.posts = data
                 },
                 error => {
-                  this.error = error.message
+                  this.error = error.message;
+                  console.log(error);
                 }
             );
     }

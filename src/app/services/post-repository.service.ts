@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse, HttpClient } from '@angular/common/http';
+import { BASE_API_URL } from '../app.globals';
 // import { Response } from '@angular/http';
 // import { AuthHttp } from 'angular2-jwt';
 
@@ -9,7 +10,7 @@ export class PostRepository {
   constructor(private httpClient: HttpClient) {}
 
   getList() {
-    let url = 'http://127.0.0.1:8000/api/posts';
+    let url = BASE_API_URL + 'posts';
 
     return this.httpClient
           .get<any[]>(url);
