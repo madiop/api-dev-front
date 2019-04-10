@@ -13,6 +13,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { PostRepository } from './services/post-repository.service';
 import { TokenInterceptor } from './users/authentication/token.interceptor';
 import { RegistrationComponent } from './users/registration/registration.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RegistrationComponent } from './users/registration/registration.compone
     HomepageComponent,
     AuthenticationComponent,
     PostComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

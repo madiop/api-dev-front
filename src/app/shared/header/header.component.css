@@ -1,0 +1,13 @@
+.sticky-header-active {
+  top:-55px;
+}
+
+.sticky-header-active img {
+  margin-top: 52px;
+  width: 82px;
+  height: 40px;
+}
+
+.menu-item {
+  text-decoration: none;
+}
