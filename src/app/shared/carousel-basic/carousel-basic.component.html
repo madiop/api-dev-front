@@ -1,0 +1,7 @@
+<owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'owl-carousel']" >
+    <div class="item" *ngFor="let image of slideImages;let i = index">
+        <div class="img-thumbnail d-block">
+            <img src={{image}}/>
+        </div>
+    </div>
+</owl-carousel>
