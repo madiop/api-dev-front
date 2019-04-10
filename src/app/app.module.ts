@@ -15,6 +15,7 @@ import { TokenInterceptor } from './users/authentication/token.interceptor';
 import { RegistrationComponent } from './users/registration/registration.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ContactUsComponent } from './site/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     PostComponent,
     RegistrationComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

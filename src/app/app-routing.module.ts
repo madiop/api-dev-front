@@ -5,6 +5,7 @@ import { AuthenticationComponent } from './users/authentication/authentication.c
 import { PostComponent } from './post/post.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { RegistrationComponent } from './users/registration/registration.component';
+import { ContactUsComponent } from './site/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
       path: 'login',
       component: AuthenticationComponent
+  },
+  {
+      path: 'contact-us',
+      component: ContactUsComponent
   },
   {
       path: 'post',
