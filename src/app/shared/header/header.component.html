@@ -1,15 +1,4 @@
 <header id="header">
-  <!-- 
-    self.activateStickyHeader
-    data-plugin-options="{
-      'stickyEnabled': true, 
-      'stickyEnableOnBoxed': true, 
-      'stickyEnableOnMobile': true, 
-      'stickyStartAt': 55, 
-      'stickySetTop': '-55px', 
-      'stickyChangeLogo': true
-    }" 
-  -->
   <div class="header-body">
     <div class="header-container container">
       <div class="header-row">
@@ -54,12 +43,13 @@
                 <nav class="collapse">
                   <ul class="nav nav-pills" id="mainNav">
                     <li>
-                      <a class=" menu-item active" href="">
+                      <a class="menu-item" routerLinkActive="active" routerLink="home"> 
+                        <!-- Penser à utiliser routerLink à la place de href -->
                         Accueil
                       </a>
                     </li>
                     <li>
-                      <a class=" menu-item" href="#">
+                      <a class="menu-item" routerLinkActive="active" routerLink="news">
                         Actualit&eacute;
                       </a>
                     </li>
@@ -107,7 +97,7 @@
                       </ul>
                     </li>
                     <li>
-                      <a class="menu-item" href="contact-us">
+                      <a class="menu-item" routerLinkActive="active" routerLink="contact-us">
                           Contactez-nous
                       </a>
                     </li>

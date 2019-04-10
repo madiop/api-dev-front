@@ -6,10 +6,11 @@ import { PostComponent } from './post/post.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { RegistrationComponent } from './users/registration/registration.component';
 import { ContactUsComponent } from './site/contact-us/contact-us.component';
+import { NewsComponent } from './site/news/news.component';
 
 const routes: Routes = [
   {
-      path: '',
+      path: 'home',
       component: HomepageComponent
   },
   {
@@ -21,13 +22,17 @@ const routes: Routes = [
       component: AuthenticationComponent
   },
   {
+      path: 'post',
+      component: PostComponent,
+      canActivate: [AuthGuard]
+  },
+  {
       path: 'contact-us',
       component: ContactUsComponent
   },
   {
-      path: 'post',
-      component: PostComponent,
-      canActivate: [AuthGuard]
+      path: 'news',
+      component: NewsComponent
   },
   { path: '**', redirectTo: '' }];
 

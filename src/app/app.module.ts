@@ -16,6 +16,8 @@ import { RegistrationComponent } from './users/registration/registration.compone
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ContactUsComponent } from './site/contact-us/contact-us.component';
+import { NewsComponent } from './site/news/news.component';
+import { PageHeaderComponent } from './shared/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ContactUsComponent } from './site/contact-us/contact-us.component';
     RegistrationComponent,
     HeaderComponent,
     FooterComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    NewsComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,
