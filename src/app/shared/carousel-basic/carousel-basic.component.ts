@@ -11,7 +11,7 @@ export class CarouselBasicComponent implements OnInit {
   slideImages = [
     '../../../assets/img/blog/blog-image-1.jpg',
     '../../../assets/img/blog/blog-image-1.jpg'
-  ]
+  ];
 
   myCarouselImages =[1,2,3,4,5,6].map((i)=>`https://picsum.photos/640/480?image=${i}`);
   

@@ -4,7 +4,9 @@
         <div class="col">
           <ul class="breadcrumb">
             <li><a href="#">Accueil</a></li>
-            <li class="active">Blog</li>
+            <li class="active" *ngFor="let item of items;let i = index">
+                {{item}}
+            </li>
           </ul>
         </div>
       </div>

@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+  pageTitle: string = "Contactez nous"
+  items = ['Contactez nous'];
   contactForm: FormGroup;
   response: string = '';
   error: string = '';
