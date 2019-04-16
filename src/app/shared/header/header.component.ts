@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,14 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  // {'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 55, 'stickySetTop': '-55px', 'stickyChangeLogo': true}
+  isAuth: boolean;
   
-  constructor(@Inject(DOCUMENT) document) { }
+  constructor(@Inject(DOCUMENT) document, 
+              private authService: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.isAuth = this.authService.loggedIn();
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -23,6 +28,11 @@ export class HeaderComponent implements OnInit {
       let element = document.getElementById('header');
         element.classList.remove('sticky-header-active'); 
      }
+  }
+
+  onSignOut() {
+    this.authService.logout();
+    this.router.navigate(["home"]);
   }
 
 }

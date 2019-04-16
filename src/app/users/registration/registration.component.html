@@ -1,38 +1,100 @@
-<h1>Registration</h1>
-<div>
-    <div [hidden]="!error" class="alert alert-danger" role="alert">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="error">&nbsp;{{ error }}</span>
-    </div>
-    <div [hidden]="response != 'duplicated'" class="alert alert-warning" role="alert">
-          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-          <span class="warning">&nbsp;{{ message }}</span>
-    </div>
-    <div *ngIf="response == 'registered'; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-        <div class="alert alert-info" role="alert">
-            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-            <span class="warning">&nbsp;{{ message }}</span>
+<div role="main" class="main">
+
+        <app-page-header [pageTitle]="pageTitle" [items]="items"></app-page-header>
+    
+    
+        <div class="container">
+    
+          <div class="row">
+            <div class="col-lg-6">
+<!--     
+              <div class="alert alert-success d-none mt-4" id="contactSuccess">
+                <strong>Success!</strong> Your message has been sent to us.
+              </div>
+    
+              <div class="alert alert-danger d-none mt-4" id="contactError">
+                <strong>Error!</strong> There was an error sending your message.
+                <span class="text-1 mt-2 d-block" id="mailErrorMessage"></span>
+              </div>
+    
+              <h2 class="mb-3 mt-2"><strong>Contact</strong> Us</h2> -->
+              
+                <div class="featured-box featured-box-primary text-left mt-5">
+                        <div class="box-content">
+                            <h4 class="heading-primary text-uppercase mb-3">I'm a Returning Customer</h4>
+                            <hr/>
+                            <app-authentication></app-authentication>
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-6">
+    
+                    <div class="featured-box featured-box-primary text-left mt-5">
+                            <div class="box-content">
+                                <h4 class="heading-primary text-uppercase mb-3">Register An Account</h4>
+                                <hr/>
+                                <div [hidden]="!error" class="alert alert-danger" role="alert">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="error">&nbsp;{{ error }}</span>
+                                    </div>
+                                    <div [hidden]="response != 'duplicated'" class="alert alert-warning" role="alert">
+                                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                        <span class="warning">&nbsp;{{ message }}</span>
+                                    </div>
+                                    <div *ngIf="response == 'success'; then thenBlock else elseBlock"></div>
+                                    <ng-template #thenBlock>
+                                        <div class="alert alert-info" role="alert">
+                                            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                            <span class="warning">&nbsp;{{ message }}</span>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()"  id="frmSignUp">
+                                            <div class="form-row">
+                                                <div class="form-group col-lg-6">
+                                                    <label>Pr&eacute;nom</label>
+                                                    <input type="text" class="form-control" formControlName="firstname">
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <label>Nom</label>
+                                                    <input type="text" class="form-control" formControlName="lastname">
+                                                 </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col">
+                                                    <label>Addresse e-mail *</label>
+                                                    <input type="text" class="form-control" formControlName="email">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col">
+                                                    <label>Nom d'utilisateur</label>
+                                                    <input type="text" class="form-control" formControlName="username">
+                                            </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col">
+                                                    <label>Mot de passe *</label>
+                                                    <input type="password" class="form-control" formControlName="password">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col">
+                                                    <button type="submit" value="Register" class="btn btn-primary float-right mb-5" disabled [disabled]="!registrationForm.valid">Enregistrer</button>
+                                                </div>
+                                            </div>
+                                          <!-- <button type="submit" class="btn btn-success pull-right" [disabled]="!registrationForm.valid">Submit</button> -->
+                                      </form>
+                                  </ng-template>
+                            </div>
+                        </div>
+                    
+            </div>
+    
+          </div>
+    
         </div>
-    </ng-template>
-    <ng-template #elseBlock>
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Firstname*" formControlName="firstname">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Lastname*" formControlName="lastname">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="E-mail*" formControlName="email">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username*" formControlName="username">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password*" formControlName="password">
-            </div>
-            <button type="submit" class="btn btn-success pull-right" [disabled]="!registrationForm.valid">Submit</button>
-        </form>
-    </ng-template>
-</div>
+    
+      </div>
+    

@@ -14,6 +14,10 @@ const routes: Routes = [
       component: HomepageComponent
   },
   {
+      path: '',
+      component: HomepageComponent
+  },
+  {
       path: 'registration',
       component: RegistrationComponent
   },
@@ -27,14 +31,14 @@ const routes: Routes = [
       canActivate: [AuthGuard]
   },
   {
-      path: 'contact-us',
-      component: ContactUsComponent
-  },
-  {
       path: 'news',
       component: NewsComponent
   },
-  { path: '**', redirectTo: '' }];
+  {
+      path: 'contact-us',
+      component: ContactUsComponent
+  },
+  { path: '**', redirectTo: 'home' }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

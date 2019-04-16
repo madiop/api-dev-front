@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { BASE_API_URL } from '../app.globals';
-import { Message } from '../models/Message';
+import { Response } from '../models/Response';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,6 @@ export class RegistrationService {
     };
 
     return this.httpClient
-               .post<Message>(url, body, httpOptions);
+               .post<Response>(url, user, httpOptions);
   }
 }

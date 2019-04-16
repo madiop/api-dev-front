@@ -169,7 +169,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="get-started text-left text-lg-right">
-                        <a href="#" class="btn btn-lg btn-primary">Get Started Now!</a>
+                        <a (click)="onSignOut()" class="btn btn-lg btn-primary" *ngIf="isAuth">Déconnexion</a>
+                        <a routerLink="/registration" class="btn btn-lg btn-primary" *ngIf="!isAuth">Rejoignez-nous!</a>
                         <div class="learn-more">or <a href="index.html">learn more.</a></div>
                     </div>
                 </div>

@@ -13,6 +13,8 @@ export class RegistrationComponent {
   response: string = '';
   error: string = '';
   message : string = '';
+  pageTitle: string = "Créer un compte"
+  items = ['Créer un compte'];
   
   constructor(
       private formBuilder: FormBuilder,
@@ -30,17 +32,18 @@ export class RegistrationComponent {
 
   onSubmit() {
     // console.log(this.registrationForm.value);
-      this.registrationService
-          .register(this.registrationForm.value)
-          .subscribe(
-              data => {
-                  this.message = data.content;
-                  this.response = data.response
-              },
-              error => {
-                //   console.log(error);
+    this.registrationService
+        .register(this.registrationForm.value)
+        .subscribe(
+            data => {
+                // console.log(data);
+                this.response = data.response
+                this.message = data.message;
+            },
+            error => {
+                // console.log(error);
                 this.error = 'Une erreur est survenu lors de l\'enregistrement de l\'utilisateur';
-              }
-          );
+            }
+        );
   }
 }

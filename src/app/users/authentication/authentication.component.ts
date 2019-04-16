@@ -28,14 +28,19 @@ export class AuthenticationComponent {
             .authenticate(this.loginForm.value)
             .subscribe(
                 data => {
-                    // console.log(data);
+                    // console.log(data['user']);
                   localStorage.setItem('id_token', data['token']);
-                  this.router.navigate(['post']);
+                  localStorage.setItem('currentUser', JSON.stringify(data['user']));
+                  this.authenticationService.emitCurrentState();
+                  this.router.navigate(['home']);
                 },
                 error => {
-                  this.error = 'Compte inactif ou coordonnées incorrectes';
+                  this.error = "Nom d'utilisateur ou mot de passe incorrect";
                 //   console.log('Error ' + error.message);
                 }
             );
+    }
+    logout() {
+        this.authenticationService.logout();
     }
 }

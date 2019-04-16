@@ -18,10 +18,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ContactUsComponent } from './site/contact-us/contact-us.component';
 import { NewsComponent } from './site/news/news.component';
-import { PageHeaderComponent } from './shared/page-header/page-header.component';
-import { CarouselBasicComponent } from './shared/carousel-basic/carousel-basic.component';
 import { PostItemComponent } from './site/news/post-item/post-item.component';
 import { PostMiscellaneousComponent } from './site/news/post-miscellaneous/post-miscellaneous.component';
+import { PageHeaderComponent } from './shared/page-header/page-header.component';
+import { CarouselBasicComponent } from './shared/carousel-basic/carousel-basic.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +34,10 @@ import { PostMiscellaneousComponent } from './site/news/post-miscellaneous/post-
     FooterComponent,
     ContactUsComponent,
     NewsComponent,
-    PageHeaderComponent,
-    CarouselBasicComponent,
     PostItemComponent,
-    PostMiscellaneousComponent
+    PostMiscellaneousComponent,
+    PageHeaderComponent,
+    CarouselBasicComponent
   ],
   imports: [
     BrowserModule,

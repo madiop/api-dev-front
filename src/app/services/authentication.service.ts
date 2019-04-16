@@ -1,26 +1,38 @@
 import { Injectable } from '@angular/core';
-// import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
-import { HttpClient, HttpResponse, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BASE_API_URL } from '../app.globals';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../models/User';
 
 @Injectable()
 export class AuthenticationService {
+  private currentStateSubject: BehaviorSubject<boolean>;
+  public currentState: Observable<boolean>;
   helper = new JwtHelperService();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    this.emitCurrentState();
+  }
+
+  // public get currentUserValue(): User {
+  //   return this.currentUserSubject.value;
+  // }
+
+  emitCurrentState() {
+    this.currentStateSubject = new BehaviorSubject<boolean>(this.loggedIn());
+    this.currentState = this.currentStateSubject.asObservable();
+  }
 
   authenticate(user: any) {
       let url     = BASE_API_URL + 'login_check';
-      let body     = new URLSearchParams();
-      body.append('username', user.username);
-      body.append('password', user.password);
+
       let httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }) //x-www-form-urlencoded
       };
 
       return this.httpClient
-                 .post<any[]>(url, body.toString(), httpOptions);
+                 .post<any[]>(url, user, httpOptions);
   }
 
   public getToken(): string {
@@ -29,6 +41,8 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('id_token');
+    this.currentStateSubject.next(null); // vérifie que l'état a bien changer
+    // this.emitCurrentState();
   }
 
   loggedIn() {
