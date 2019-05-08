@@ -186,8 +186,11 @@
                 <h1 class="mb-2 word-rotator-title">
                     Porto is
                     <strong class="inverted">
-                        <span class="word-rotator" data-plugin-options="{'delay': 2000, 'animDelay': 300}">
-                            <span class="word-rotator-items">
+                        <span class="word-rotator">
+                            <span class="spinny-words">
+                                <span>incredibly</span>
+                                <span>especially</span>
+                                <span>extremely</span>
                                 <span>incredibly</span>
                                 <span>especially</span>
                                 <span>extremely</span>
@@ -212,7 +215,7 @@
                 <span class="cloud"></span>
                 <div class="col-lg-2 ml-lg-auto">
                     <div class="process-image">
-                        <img src="../../assets/img/home-concept-item-1.jpeg" alt="" />
+                        <img src="../../assets/img/home-concept-item-1.png" alt="" />
                         <strong>Sanarois un jour</strong>
                     </div>
                 </div>
@@ -231,12 +234,21 @@
                 <div class="col-lg-4 ml-lg-auto">
                     <div class="project-image">
                         <div id="fcSlideshow" class="fc-slideshow">
+                            <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'owl-carousel']" >
+                                <div class="item" *ngFor="let image of slideImages;let i = index">
+                                    <div class="fc-slides d-block">
+                                        <img src={{image}}/>
+                                    </div>
+                                </div>
+                            </owl-carousel>
+                        </div>
+                        <!-- <div id="fcSlideshow" class="fc-slideshow">
                             <ul class="fc-slides">
                                 <li><a href="portfolio-single-small-slider.html"><img class="img-responsive" src="../../assets/img/projects/project-home-1.jpg" alt="" /></a></li>
                                 <li><a href="portfolio-single-small-slider.html"><img class="img-responsive" src="../../assets/img/projects/project-home-2.jpg" alt="" /></a></li>
                                 <li><a href="portfolio-single-small-slider.html"><img class="img-responsive" src="../../assets/img/projects/project-home-3.jpg" alt="" /></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <strong class="our-work">Sanarois pour toujours</strong>
                     </div>
                 </div>
@@ -561,3 +573,11 @@
         </section>
     </section>
 </div>
+
+<!-- <owl-carousel id="fcSlideshow" [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'owl-carousel', 'fc-slideshow']" >
+        <div class="item" *ngFor="let image of slideImages;let i = index">
+            <div class="fc-slides d-block">
+                <img src={{image}}/>
+            </div>
+        </div>
+    </owl-carousel> -->

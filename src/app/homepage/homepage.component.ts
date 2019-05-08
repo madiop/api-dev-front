@@ -12,6 +12,15 @@ import { AuthenticationService } from '../services/authentication.service';
 export class HomepageComponent implements OnInit {
   
   isAuth: boolean;
+  slideImages = [
+    '../../assets/img/projects/project-home-1.jpg',
+    '../../assets/img/projects/project-home-2.jpg',
+    '../../assets/img/projects/project-home-3.jpg'
+  ];
+
+  mySlideOptions={items: 1,  dots: false, animateOut: 'slideOutDown', animateIn: 'flipInX', loop: true, autoplay: true, nav: false};
+  // mySlideOptions = {items: 1, dots: false, animateOut: 'slideOutDown', animateIn: 'flipInX', autoplay:true, loop: true, nav: false};
+  // slideTransition: 'fade', 
 
   constructor(private authService: AuthenticationService,
               private router: Router) { }

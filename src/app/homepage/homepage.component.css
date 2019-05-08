@@ -1,0 +1,77 @@
+/*------------------ rotate words -----------------*/
+
+.spinny-words{
+    display: inline-block;
+    min-width: 175px;
+    text-align: left;
+}
+.spinny-words span{
+    position: absolute;
+    font-weight: bold;
+    top:-0px;
+    opacity: 0;    
+    animation: rotateWord 18s linear infinite 0s;
+}
+.spinny-words span:nth-child(2) { 
+    animation-delay: 3s; 
+}
+.spinny-words span:nth-child(3) { 
+    animation-delay: 6s; 
+}
+.spinny-words span:nth-child(4) { 
+    animation-delay: 9s; 
+}
+.spinny-words span:nth-child(5) { 
+    animation-delay: 12s; 
+}
+.spinny-words span:nth-child(6) { 
+    animation-delay: 15s; 
+}
+@keyframes rotateWord {
+  0%   { opacity: 0; }
+  2%   { opacity: 0; transform: translateY(-30px); }
+  5%   { opacity: 1; transform: translateY(0px);}
+  17%  { opacity: 1; transform: translateY(0px); }
+  20%  { opacity: 0; transform: translateY(30px); }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+/*------------------ rotate words -----------------*/
+/* Feel free to change duration  */ 
+.animated  {
+	-webkit-animation-duration : 1000 ms  ;
+	animation-duration : 1000 ms  ;
+	-webkit-animation-fill-mode : both  ;
+	animation-fill-mode : both  ;
+  }  
+  /* .owl-animated-out - only for current item */ 
+  /* This is very important class. Use z-index if you want move Out item above In item */ 
+  .owl-animated-out {
+	z-index : 1 
+	 }
+  /* .owl-animated-in - only for upcoming item
+  /* This is very important class. Use z-index if you want move In item above Out item */ 
+  .owl-animated-in {
+	z-index : 0 
+	 }
+  /* .fadeOut is style taken from Animation.css and this is how it looks in owl.carousel.css:  */ 
+  .fadeOut  {
+	-webkit-animation-name : fadeOut  ;
+	animation-name : fadeOut  ;
+  }  
+  @-webkit-keyframes  fadeOut  {
+	0% {
+	  opacity : 1   ;
+	}  
+	100% {
+	  opacity : 0   ;
+	}  
+  }
+  @keyframes  fadeOut  {
+	0% {
+	  opacity : 1   ;
+	}  
+	100% {
+	  opacity : 0   ;
+	}  
+  }
